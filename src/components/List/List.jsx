@@ -1,13 +1,18 @@
 import React from 'react';
 import './List.css';
 import Todo from '../Todo/Todo';
+import { useSelector } from 'react-redux';
 
 const List = () => {
+
+    const listOfTodo = useSelector((state) => state.todo)
     return (
         <div className='main'>
             <div className='todo__list'>
                 <h2>Todo List</h2>
-                <Todo/>
+                {listOfTodo.map(({id, name, description}) => (
+                    <Todo key={id} name={name} description={description} />
+                ))}
             </div>
             <div className='btn__block'>
                 <h2>Add new todo</h2>
