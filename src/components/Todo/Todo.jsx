@@ -1,12 +1,13 @@
 import React from 'react';
 import './Todo.css';
 
-const Todo = () => {
+const Todo = ({name, description}) => {
+
     return (
         <div className='todo'>
             <div className='content'>
-                <div className='name'>Name:</div>
-                <div>Description:</div>
+                <div className='name'>Name: {name}</div>
+                <div>Description: {description} </div>
             </div>
             <div className='btns'>
                 <input 
