@@ -23,8 +23,16 @@
 
 .delete{
     cursor: pointer;
+    border: 1px solid white;
+    display: flex;
+    justify-content: center;
 }
 
 .done{
     cursor: pointer;
+}
+
+.checked {
+    text-decoration: line-through;
+    opacity: 0.5; 
 }

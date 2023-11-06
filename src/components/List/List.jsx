@@ -26,9 +26,9 @@ const List = () => {
         <div className='main'>
             <div className='todo__list'>
                 <h2>Todo List</h2>
-                {listOfTodo && listOfTodo.map(({id, name, description}) => (
+                {listOfTodo.length !== 0 ? listOfTodo.map(({id, name, description}) => (
                     <Todo key={id} id={id} name={name} description={description} />
-                ))}
+                )) : <h2>Нет задач</h2>} 
             </div>
             <div className='btn__block'>
                 <h2>Add new todo</h2>
