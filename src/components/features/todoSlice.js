@@ -1,8 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { v4 as uuidv4 } from 'uuid';
 
 const initialState = [
-   {id: 1, name: 'task1', description: 'mytask1'},
-   {id: 2, name: 'task2', description: 'mytask2'},
+   {id: uuidv4(), name: 'task1', description: 'mytask1'},
+   {id: uuidv4(), name: 'task2', description: 'mytask2'},
 ]
 
 const todoSlice = createSlice({
@@ -10,12 +11,12 @@ const todoSlice = createSlice({
     initialState,
     reducers: {
         addTask: (state, action) => {
-            state.push(action.payload); 
+            state.push({ ...action.payload, id: uuidv4()});
         },
         deleteTask: (state, action) => {
-            return state.filter(task => task.id !== action.payload);
+            const taskId = action.payload;
+            return state.filter(task => task.id !== taskId);
         }
-        
     },
 })
 
